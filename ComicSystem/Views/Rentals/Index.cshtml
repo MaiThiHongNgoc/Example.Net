@@ -1,0 +1,35 @@
+@model IEnumerable<ComicSystem.Models.Rental>
+
+@{
+    ViewData["Title"] = "Rental List";
+}
+
+<h2>Rentals</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Rental Date</th>
+            <th>Return Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rental in Model)
+        {
+            <tr>
+                <td>@rental.Customer.FullName</td>
+                <td>@rental.RentalDate.ToShortDateString()</td>
+                <td>@rental.ReturnDate.ToShortDateString()</td>
+                <td>@rental.Status</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = rental.RentalID })">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Create", "Rentals")" class="btn btn-primary">Create New Rental</a>
+

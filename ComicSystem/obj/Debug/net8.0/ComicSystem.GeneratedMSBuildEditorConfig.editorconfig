@@ -18,20 +18,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ADMIN\Documents\Example\ComicSystem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/CreateComicBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVDb21pY0Jvb2suY3NodG1s
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/ComicBooks/CreateComicBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWNCb29rc1xDcmVhdGVDb21pY0Jvb2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/CreateRental.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVSZW50YWwuY3NodG1s
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/ComicBooks/DeleteComicBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWNCb29rc1xEZWxldGVDb21pY0Jvb2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/DeleteComicBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZWxldGVDb21pY0Jvb2suY3NodG1s
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/ComicBooks/EditComicBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWNCb29rc1xFZGl0Q29taWNCb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/EditComicBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0Q29taWNCb29rLmNzaHRtbA==
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/ComicBooks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWNCb29rc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Customers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Customers/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXFJlZ2lzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/Index.cshtml]
@@ -42,12 +54,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/RegisterCustomer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RlckN1c3RvbWVyLmNzaHRtbA==
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Rentals/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudGFsc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/RentalReport.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZW50YWxSZXBvcnQuY3NodG1s
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Rentals/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudGFsc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Rentals/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudGFsc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Shared/Error.cshtml]

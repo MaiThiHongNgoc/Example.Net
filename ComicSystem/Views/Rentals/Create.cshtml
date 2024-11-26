@@ -1,0 +1,34 @@
+@model ComicSystem.Models.Rental
+
+@{
+    ViewData["Title"] = "Create Rental";
+}
+
+<h2>Create Rental</h2>
+
+<form asp-action="CreateRental" method="post">
+    <div class="form-group">
+        <label asp-for="CustomerID"></label>
+        <select asp-for="CustomerID" class="form-control">
+            <option value="">Select Customer</option>
+            @foreach (var customer in ViewBag.Customers as IEnumerable<ComicSystem.Models.Customer>)
+            {
+                <option value="@customer.CustomerID">@customer.FullName</option>
+            }
+        </select>
+        <span asp-validation-for="CustomerID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RentalDate"></label>
+        <input asp-for="RentalDate" type="date" class="form-control" />
+        <span asp-validation-for="RentalDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReturnDate"></label>
+        <input asp-for="ReturnDate" type="date" class="form-control" />
+        <span asp-validation-for="ReturnDate" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<a href="@Url.Action("Index")">Back to List</a>
