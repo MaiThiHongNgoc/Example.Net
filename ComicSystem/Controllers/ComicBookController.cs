@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ComicSystem.Data;
 using ComicSystem.Models;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace ComicSystem.Controllers

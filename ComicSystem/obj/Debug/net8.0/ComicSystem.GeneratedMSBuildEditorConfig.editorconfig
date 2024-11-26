@@ -18,8 +18,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ADMIN\Documents\Example\ComicSystem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGUuY3NodG1s
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/CreateComicBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVDb21pY0Jvb2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/CreateRental.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVSZW50YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/Index.cshtml]
@@ -28,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Home/RentalReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZW50YWxSZXBvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ADMIN/Documents/Example/ComicSystem/Views/Shared/Error.cshtml]

@@ -10,7 +10,7 @@ namespace ComicSystem.Models
         public DateTime RentalDate { get; set; }
         public DateTime ReturnDate { get; set; }
         public string Status { get; set; }
-
+        public virtual ComicBook ComicBook { get; set; }
         public Customer Customer { get; set; }
         public ICollection<RentalDetail> RentalDetails { get; set; }
     }

@@ -1,28 +1,39 @@
 ﻿@model IEnumerable<ComicSystem.Models.ComicBook>
 
 <h1>Comic Books</h1>
-<a asp-action="Create">Create New Comic Book</a>
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Price/Day</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+
+<!-- Link to Create New Comic Book -->
+<a asp-action="CreateComicBook">Create New Comic Book</a>
+
+@if (Model == null || !Model.Any())
+{
+    <p>No comic books found.</p>
+}
+else
+{
+    <table>
+        <thead>
             <tr>
-                <td>@item.Title</td>
-                <td>@item.Author</td>
-                <td>@item.PricePerDay</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ComicBookID">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ComicBookID">Delete</a>
-                </td>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price/Day</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Author</td>
+                    <td>@item.PricePerDay</td>
+                    <td>
+                        <!-- Links to Edit and Delete comic books -->
+                        <a asp-action="EditComicBook" asp-route-id="@item.ComicBookID">Edit</a> |
+                        <a asp-action="DeleteComicBook" asp-route-id="@item.ComicBookID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,16 @@
+@model ComicSystem.Models.Rental
+
+<h1>Create Rental</h1>
+
+<form method="post">
+    <label for="CustomerId">Customer ID</label>
+    <input type="number" name="CustomerId" id="CustomerId" required />
+    
+    <label for="RentalDate">Rental Date</label>
+    <input type="date" name="RentalDate" id="RentalDate" required />
+    
+    <label for="ReturnDate">Return Date</label>
+    <input type="date" name="ReturnDate" id="ReturnDate" required />
+    
+    <button type="submit">Create Rental</button>
+</form>
