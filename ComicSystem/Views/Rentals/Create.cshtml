@@ -32,21 +32,50 @@
     </div>
 
     <h3>Add Comic Books to Rental</h3>
-    <div class="form-group">
-        <label>Select Comic Books:</label>
-        <select class="form-control" name="rentalDetails[0].ComicBookID">
-            @foreach (var comicBook in ViewBag.ComicBooks as IEnumerable<ComicSystem.Models.ComicBook>)
-            {
-                <option value="@comicBook.ComicBookID">@comicBook.Title</option>
-            }
-        </select>
-        <label>Quantity</label>
-        <input type="number" class="form-control" name="rentalDetails[0].Quantity" min="1" />
-        <label>Price per Day</label>
-        <input type="number" class="form-control" name="rentalDetails[0].PricePerDay" min="0" step="0.01" />
+    <div id="comicBooksContainer">
+        <div class="form-group">
+            <label>Select Comic Book:</label>
+            <select class="form-control" name="rentalDetails[0].ComicBookID">
+                @foreach (var comicBook in ViewBag.ComicBooks as IEnumerable<ComicSystem.Models.ComicBook>)
+                {
+                    <option value="@comicBook.ComicBookID">@comicBook.Title</option>
+                }
+            </select>
+            <label>Quantity</label>
+            <input type="number" class="form-control" name="rentalDetails[0].Quantity" min="1" />
+            <label>Price per Day</label>
+            <input type="number" class="form-control" name="rentalDetails[0].PricePerDay" min="0" step="0.01" />
+        </div>
     </div>
+
+    <button type="button" class="btn btn-secondary" onclick="addComicBook()">Add Comic Book</button>
 
     <button type="submit" class="btn btn-primary">Create Rental</button>
 </form>
 
 <a href="@Url.Action("Index")">Back to List</a>
+
+<script>
+    var comicBookIndex = 1;
+
+    function addComicBook() {
+        var container = document.getElementById("comicBooksContainer");
+        var newField = `
+            <div class="form-group">
+                <label>Select Comic Book:</label>
+                <select class="form-control" name="rentalDetails[${comicBookIndex}].ComicBookID">
+                    @foreach (var comicBook in ViewBag.ComicBooks as IEnumerable<ComicSystem.Models.ComicBook>)
+                    {
+                        <option value="@comicBook.ComicBookID">@comicBook.Title</option>
+                    }
+                </select>
+                <label>Quantity</label>
+                <input type="number" class="form-control" name="rentalDetails[${comicBookIndex}].Quantity" min="1" />
+                <label>Price per Day</label>
+                <input type="number" class="form-control" name="rentalDetails[${comicBookIndex}].PricePerDay" min="0" step="0.01" />
+            </div>
+        `;
+        container.insertAdjacentHTML("beforeend", newField);
+        comicBookIndex++;
+    }
+</script>

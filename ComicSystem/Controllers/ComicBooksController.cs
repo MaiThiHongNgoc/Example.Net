@@ -43,7 +43,7 @@ namespace ComicSystem.Controllers
         }
 
         // GET: ComicBooks/Edit/5
-        public async Task<IActionResult> EditComicBook(int? id)
+       public async Task<IActionResult> EditComicBook(int? id)
         {
             if (id == null)
             {
@@ -55,10 +55,11 @@ namespace ComicSystem.Controllers
             {
                 return NotFound();
             }
+
             return View(comicBook);
         }
 
-        // POST: ComicBooks/Edit/5
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditComicBook(int id, [Bind("ComicBookID,Title,Author,PricePerDay")] ComicBook comicBook)
@@ -102,8 +103,7 @@ namespace ComicSystem.Controllers
             var comicBook = await _context.ComicBooks
                 .FirstOrDefaultAsync(m => m.ComicBookID == id);
             if (comicBook == null)
-            {
-                return NotFound();
+            {return NotFound();
             }
 
             return View(comicBook);
@@ -115,10 +115,16 @@ namespace ComicSystem.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var comicBook = await _context.ComicBooks.FindAsync(id);
+            if (comicBook == null)
+            {
+                return NotFound();
+            }
+
             _context.ComicBooks.Remove(comicBook);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool ComicBookExists(int id)
         {

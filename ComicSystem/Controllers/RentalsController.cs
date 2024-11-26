@@ -15,7 +15,6 @@ namespace ComicSystem.Controllers
         }
 
         // GET: Rentals
-        // GET: Rentals
         public async Task<IActionResult> Index()
         {
             var rentals = await _context.Rentals
@@ -26,8 +25,6 @@ namespace ComicSystem.Controllers
 
             return View(rentals);
         }
-
-
 
         // GET: Rentals/Details/5
         public async Task<IActionResult> Details(int id)
@@ -61,21 +58,25 @@ namespace ComicSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Add the rental first and save to generate RentalID
                 _context.Add(rental);
                 await _context.SaveChangesAsync();
 
+                // Ensure each RentalDetail is linked to the Rental
                 foreach (var detail in rentalDetails)
                 {
-                    detail.RentalID = rental.RentalID;
-                    _context.Add(detail);
+                    detail.RentalID = rental.RentalID;  // Set RentalID for each detail
+                    _context.Add(detail);  // Add RentalDetail to the context
                 }
 
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();  // Commit changes for rental and details
+
+                return RedirectToAction(nameof(Index)); // Redirect to Rentals index
             }
 
-            ViewBag.Customers = _context.Customers.ToList(); // Repopulate customer list
-            ViewBag.ComicBooks = _context.ComicBooks.ToList(); // Repopulate comic book list
+            // If the model is invalid, repopulate the dropdown lists and return to the view
+            ViewBag.Customers = _context.Customers.ToList();
+            ViewBag.ComicBooks = _context.ComicBooks.ToList();
             return View(rental);
         }
     }

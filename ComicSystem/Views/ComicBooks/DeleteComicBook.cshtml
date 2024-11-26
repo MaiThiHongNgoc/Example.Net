@@ -17,7 +17,8 @@
         <dd>@Model.PricePerDay</dd>
     </dl>
 
-    <form asp-action="DeleteConfirmed" method="post">
+    <!-- Form for deleting the comic book -->
+    <form asp-action="DeleteComicBook" method="post">
         <input type="hidden" asp-for="ComicBookID" />
         <button type="submit" class="btn btn-danger">Delete</button>
         <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
