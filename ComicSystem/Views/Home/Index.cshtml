@@ -3,7 +3,7 @@
 <h1>Comic Books</h1>
 
 <!-- Link to Create New Comic Book -->
-<a asp-action="CreateComicBook">Create New Comic Book</a>
+<a asp-action="CreateComicBook" class="btn btn-primary">Create New Comic Book</a>
 
 @if (Model == null || !Model.Any())
 {
@@ -11,7 +11,7 @@
 }
 else
 {
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Title</th>
@@ -29,8 +29,9 @@ else
                     <td>@item.PricePerDay</td>
                     <td>
                         <!-- Links to Edit and Delete comic books -->
-                        <a asp-action="EditComicBook" asp-route-id="@item.ComicBookID">Edit</a> |
-                        <a asp-action="DeleteComicBook" asp-route-id="@item.ComicBookID">Delete</a>
+                        <a asp-action="EditComicBook" asp-route-id="@item.ComicBookID" class="btn btn-warning btn-sm">Edit</a> |
+                        <a asp-action="DeleteComicBook" asp-route-id="@item.ComicBookID" class="btn btn-danger btn-sm" 
+                           onclick="return confirm('Are you sure you want to delete this comic book?')">Delete</a>
                     </td>
                 </tr>
             }

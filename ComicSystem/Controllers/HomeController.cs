@@ -67,9 +67,10 @@ namespace ComicSystem.Controllers
         }
 
         // Delete comic book
-        public async Task<IActionResult> DeleteComicBook(int id)
+        [HttpPost]
+        public async Task<IActionResult> DeleteComicBook(int comicBookID)
         {
-            var comicBook = await _context.ComicBooks.FindAsync(id);
+            var comicBook = await _context.ComicBooks.FindAsync(comicBookID);
             if (comicBook != null)
             {
                 _context.ComicBooks.Remove(comicBook);
