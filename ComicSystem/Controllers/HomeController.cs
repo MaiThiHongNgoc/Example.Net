@@ -4,6 +4,9 @@ using ComicSystem.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
 namespace ComicSystem.Controllers
@@ -79,11 +82,34 @@ namespace ComicSystem.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Customer Management
+
+        // Register new customer (GET)
+        public IActionResult RegisterCustomer()
+        {
+            return View();
+        }
+
+        // Register new customer (POST)
+        [HttpPost]
+        public async Task<IActionResult> RegisterCustomer(Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Customers.Add(customer);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(customer);
+        }
+
         // Rental Management
 
         // Create a new rental (GET)
         public IActionResult CreateRental()
         {
+            ViewData["ComicBooks"] = new SelectList(_context.ComicBooks, "ComicBookID", "Title");
+            ViewData["Customers"] = new SelectList(_context.Customers, "CustomerID", "Fullname");
             return View();
         }
 
@@ -93,9 +119,11 @@ namespace ComicSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Add the rental to Rentals table
                 _context.Rentals.Add(rental);
                 await _context.SaveChangesAsync();
 
+                // Add rental details (comic books rented)
                 foreach (var detail in rentalDetails)
                 {
                     detail.RentalID = rental.RentalID;
@@ -105,6 +133,8 @@ namespace ComicSystem.Controllers
 
                 return RedirectToAction(nameof(RentalIndex));
             }
+            ViewData["ComicBooks"] = new SelectList(_context.ComicBooks, "ComicBookID", "Title", rentalDetails?.FirstOrDefault()?.ComicBookID);
+            ViewData["Customers"] = new SelectList(_context.Customers, "CustomerID", "Fullname", rental.CustomerID);
             return View(rental);
         }
 
