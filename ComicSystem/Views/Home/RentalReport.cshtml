@@ -1,33 +1,16 @@
-@model IEnumerable<ComicSystem.Models.Rental>
+@model ComicSystem.Models.Rental
 
-<h1>Rental Report</h1>
+<h1>Create Rental</h1>
 
-<form method="get">
-    <label>Start Date</label>
-    <input type="date" name="startDate" />
-    <label>End Date</label>
-    <input type="date" name="endDate" />
-    <button type="submit">Generate Report</button>
+<form method="post">
+    <label for="CustomerId">Customer ID</label>
+    <input type="number" name="CustomerId" id="CustomerId" required />
+    
+    <label for="RentalDate">Rental Date</label>
+    <input type="date" name="RentalDate" id="RentalDate" required />
+    
+    <label for="ReturnDate">Return Date</label>
+    <input type="date" name="ReturnDate" id="ReturnDate" required />
+    
+    <button type="submit">Create Rental</button>
 </form>
-
-<table>
-    <thead>
-        <tr>
-            <th>Book Name</th>
-            <th>Rental Date</th>
-            <th>Return Date</th>
-            <th>Customer Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var rental in Model)
-        {
-            <tr>
-                @* <td>@rental.ComicBook.Title</td> *@
-                <td>@rental.RentalDate</td>
-                <td>@rental.ReturnDate</td>
-                @* <td>@rental.Customer.Fullname</td> *@
-            </tr>
-        }
-    </tbody>
-</table>

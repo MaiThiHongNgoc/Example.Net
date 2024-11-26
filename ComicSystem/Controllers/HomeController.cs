@@ -2,10 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using ComicSystem.Data;
 using ComicSystem.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
@@ -145,11 +141,12 @@ namespace ComicSystem.Controllers
                 .Where(r => r.RentalDate >= startDate && r.ReturnDate <= endDate)
                 .Include(r => r.Customer)
                 .Include(r => r.RentalDetails)
-                .ThenInclude(rd => rd.ComicBook)
+                    .ThenInclude(rd => rd.ComicBook)  // Đảm bảo rằng ComicBook được bao gồm ở đây
                 .ToListAsync();
 
             return View(rentals);
         }
+
 
         // Error Handling
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
