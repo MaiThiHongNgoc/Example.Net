@@ -1,9 +1,5 @@
 @model IEnumerable<ComicSystem.Models.Rental>
 
-@{
-    ViewData["Title"] = "Rental List";
-}
-
 <h2>Rentals</h2>
 
 <table class="table">
@@ -31,5 +27,5 @@
         }
     </tbody>
 </table>
-<a href="@Url.Action("Create", "Rentals")" class="btn btn-primary">Create New Rental</a>
 
+<a href="@Url.Action("Create", "Rentals")" class="btn btn-primary">Create New Rental</a>

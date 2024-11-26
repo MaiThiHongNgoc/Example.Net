@@ -69,6 +69,9 @@ namespace ComicSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("ComicBookID")
+                        .HasColumnType("int");
+
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
@@ -83,6 +86,8 @@ namespace ComicSystem.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("RentalID");
+
+                    b.HasIndex("ComicBookID");
 
                     b.HasIndex("CustomerID");
 
@@ -118,11 +123,19 @@ namespace ComicSystem.Migrations
 
             modelBuilder.Entity("ComicSystem.Models.Rental", b =>
                 {
+                    b.HasOne("ComicSystem.Models.ComicBook", "ComicBook")
+                        .WithMany()
+                        .HasForeignKey("ComicBookID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ComicSystem.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ComicBook");
 
                     b.Navigation("Customer");
                 });

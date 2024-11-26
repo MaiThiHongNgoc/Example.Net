@@ -1,22 +1,33 @@
 @model ComicSystem.Models.Rental
 
-@{
-    ViewData["Title"] = "Rental Details";
-}
-
 <h2>Rental Details</h2>
 
 <div>
-    <dl class="dl-horizontal">
-        <dt>Customer:</dt>
-        <dd>@Model.Customer.FullName</dd>
-        <dt>Rental Date:</dt>
-        <dd>@Model.RentalDate.ToShortDateString()</dd>
-        <dt>Return Date:</dt>
-        <dd>@Model.ReturnDate.ToShortDateString()</dd>
-        <dt>Status:</dt>
-        <dd>@Model.Status</dd>
-    </dl>
+    <h3>Customer: @Model.Customer.FullName</h3>
+    <p>Rental Date: @Model.RentalDate.ToShortDateString()</p>
+    <p>Return Date: @Model.ReturnDate.ToShortDateString()</p>
+    <p>Status: @Model.Status</p>
 
-    <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+    <h4>Rental Details</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Comic Book</th>
+                <th>Quantity</th>
+                <th>Price Per Day</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in Model.RentalDetails)
+            {
+                <tr>
+                    <td>@detail.ComicBook.Title</td>
+                    <td>@detail.Quantity</td>
+                    <td>@detail.PricePerDay</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
+
+<a href="@Url.Action("Index")" class="btn btn-primary">Back to Rentals</a>

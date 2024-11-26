@@ -59,11 +59,18 @@ namespace ComicSystem.Migrations
                     RentalDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Status = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ComicBookID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Rentals", x => x.RentalID);
+                    table.ForeignKey(
+                        name: "FK_Rentals_ComicBooks_ComicBookID",
+                        column: x => x.ComicBookID,
+                        principalTable: "ComicBooks",
+                        principalColumn: "ComicBookID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Rentals_Customers_CustomerID",
                         column: x => x.CustomerID,
@@ -113,6 +120,11 @@ namespace ComicSystem.Migrations
                 column: "RentalID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Rentals_ComicBookID",
+                table: "Rentals",
+                column: "ComicBookID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Rentals_CustomerID",
                 table: "Rentals",
                 column: "CustomerID");
@@ -124,10 +136,10 @@ namespace ComicSystem.Migrations
                 name: "RentalDetails");
 
             migrationBuilder.DropTable(
-                name: "ComicBooks");
+                name: "Rentals");
 
             migrationBuilder.DropTable(
-                name: "Rentals");
+                name: "ComicBooks");
 
             migrationBuilder.DropTable(
                 name: "Customers");
